@@ -1,0 +1,15 @@
+@let emp = employee();
+<div class="details">
+    <div class="details-row">
+        <div class="label">Nom : </div>
+        <div class="value" (click)="onNameClick()">{{ emp.name }}</div>
+    </div>
+    <div class="details-row">
+        <div class="label">Département : </div>
+        <div class="value">{{ emp.department }}</div>
+    </div>
+    <div class="details-row">
+        <div class="label">Niveau : </div>
+        <div class="value">{{ emp.level | level }}</div>
+    </div>
+</div>
