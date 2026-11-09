@@ -1,0 +1,156 @@
+<!--
+<h2>Exercice </h2>
+<app-employee-list-exo
+  [employees_exo]="employees"
+  (details)="showDetails_exo($event)"
+  (delete)="onDelete_exo($event)"
+  (edit)="onEdit_exo($event)"
+/>
+@if(employee_exo) {
+  <app-employee [employee]="employee_exo"></app-employee>
+} @else {
+  <p>Aucun employé sélectionné</p>
+}
+<hr>
+<h2>Cours</h2>
+<hr>
+<app-employee [employee]="employee" (nameClick)="onNameClick($event)"></app-employee>
+<hr>
+<p>Mampiasa boucle eto</p>
+<ul>
+  @for(employeee of employees; track employeee._id; let ind = $index; let pair = $even) {
+    <app-employee [employee]="employeee" (nameClick)="onNameClick($event)"></app-employee>
+    <li [class.red]="pair">{{ ind }} - {{ employeee.name }}</li>
+  }
+</ul>
+@let levelo = employee.level;
+@if(levelo === "X") {
+  <span>X be</span>
+} @else if(levelo === "Y") {
+  <span>Y fotsiny</span>
+} @else {
+  <span>Izay izany eh !</span>
+}
+@switch(levelo) {
+  @case("X") {
+    <span>X case</span>
+  }
+  @case("Y") {
+    <span>Y case</span>
+  }
+  @default {
+    <span>Tsisy case</span>
+  }
+}
+<h1>Titre : {{ title }}</h1>
+<p>Age : {{ age }}</p>
+<input #myInput (input)="onEdit(myInput.value)" [type]="inputType">
+<button (click)="toggleInputType()">Voir</button>
+<span>{{ theValue }}</span>
+<p>Valeur : {{ counter }} 
+  <button (click)="decrement()">Décrémenter</button>
+  <button (click)="increment()">Incrémenter</button>
+</p>
+<div [class]="messageClass">
+  Message...
+</div>
+<button (click)="changeColor('success')">Vert</button>
+<button (click)="changeColor('error')">Rouge</button>
+<p>Daty androany : {{ now | date : 'MMM hh:mm' | uppercase }}</p>
+<p>Montant : {{ amount | currency : curr }}</p>
+-->
+<router-outlet />
+<!-- TEMPLATE-DRIVEN FORMS -->
+<!--
+<input
+  [attr.disabled]="!data.isMajor ? 'disabled' : null"
+  type="text"
+  placeholder="username"
+  [(ngModel)]="data.username">
+<p>{{ data.username }}</p>
+<div>
+  <label>Major <input
+    type="radio"
+    name="major"
+    [value]="true"
+    [(ngModel)]="data.isMajor">
+  </label>
+  <label>Minor <input
+    type="radio"
+    name="major"
+    [value]="false"
+    [(ngModel)]="data.isMajor">
+  </label>
+  <p>{{ data.isMajor }}</p>
+</div>
+-->
+<!-- REACTIVE FORMS -->
+<!--
+<h2>formControl</h2>
+<input
+  [formControl]="usernameCtrl"
+  type="text"
+  placeholder="username">
+<p>Value : {{ usernameCtrl.value }}</p>
+<p>Valid : {{ usernameCtrl.valid }}</p>
+<p>Errors : {{ usernameCtrl.errors | json }}</p>
+<p>Touched : {{ usernameCtrl.touched }}</p>
+@if(usernameCtrl.hasError("minlength")) {
+  <p>Minimum {{ usernameCtrl.errors?.["minlength"].requiredLength }} caractères, alors que vous avez actuellement saisi {{ usernameCtrl.errors?.["minlength"].actualLength }} caractères.</p>
+}
+<p>Maximum 50 caractères</p>
+@if(usernameCtrl.hasError("required") && usernameCtrl.touched) {
+  <p>Username requis</p>
+}
+<div>
+  <label>Major <input
+    [formControl]="isMajorCtrl"
+    type="radio"
+    name="major"
+    [value]="true">
+  </label>
+  <label>Minor <input
+    [formControl]="isMajorCtrl"
+    type="radio"
+    name="major"
+    [value]="false">
+  </label>
+  <p>Value : {{ isMajorCtrl.value }}</p>
+</div>
+-->
+<!-- REACTIVE FORMS -->
+<!--
+<h2>formGroup</h2>
+<div [formGroup]="form">
+<input
+  formControlName="username"
+  type="text"
+  placeholder="username">
+<p>Value : {{ usernameCtrl.value }}</p>
+<p>Valid : {{ usernameCtrl.valid }}</p>
+<p>Errors : {{ usernameCtrl.errors | json }}</p>
+<p>Touched : {{ usernameCtrl.touched }}</p>
+@if(usernameCtrl.hasError("minlength")) {
+  <p>Minimum {{ usernameCtrl.errors?.["minlength"].requiredLength }} caractères, alors que vous avez actuellement saisi {{ usernameCtrl.errors?.["minlength"].actualLength }} caractères.</p>
+}
+<p>Maximum 50 caractères</p>
+@if(usernameCtrl.hasError("required") && usernameCtrl.touched) {
+  <p>Username requis</p>
+}
+<div>
+  <label>Major <input
+    formControlName="isMajor"
+    type="radio"
+    [value]="true">
+  </label>
+  <label>Minor <input
+    formControlName="isMajor"
+    type="radio"
+    [value]="false">
+  </label>
+  <p>Value : {{ isMajorCtrl.value }}</p>
+</div>
+<p>Value : {{ form.value | json }}</p>
+<p>Valid : {{ form.valid | json }}</p>
+</div>
+-->

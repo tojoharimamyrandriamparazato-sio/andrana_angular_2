@@ -1,0 +1,12 @@
+<h2>Exercice </h2>
+<app-employee-list-exo
+  [employees_exo]="employees"
+  (details)="showDetails_exo($event)"
+  (delete)="onDelete_exo($event)"
+  (edit)="onEdit_exo($event)"
+/>
+@if(employee_exo) {
+  <app-employee [employee]="employee_exo"></app-employee>
+} @else {
+  <p>Aucun employé sélectionné</p>
+}

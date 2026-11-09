@@ -1,0 +1,54 @@
+<form autocomplete="off" [formGroup]="form" novalidate class="form">
+@let nameCtrl = form.get('name');
+@if(nameCtrl?.errors && nameCtrl?.touched) {
+    <div>
+    @if(nameCtrl?.hasError('required')) {
+        <p>The name is required</p>
+    }
+    @if(nameCtrl?.hasError('maxlength')) {
+        <p>The max length is 30</p>
+    }  
+    </div>
+}
+    <div class="form-row">
+        <label for="name">Name</label>
+        <input formControlName="name" type="text" id="name">
+    </div>
+@let levelCtrl = form.get('level');
+@if(levelCtrl?.errors && levelCtrl?.touched) {
+    <div>
+    @if(levelCtrl?.hasError('required')) {
+        <p>The level is required</p>
+    }
+    </div>
+}
+    <div class="form-row">
+        <label for="level">Level</label>
+        <select formControlName="level" id="level">
+            <option value="X">Iksa</option>
+            <option value="Y">Ygreka</option>
+            <option value="Z">Zeda</option>
+        </select>
+    </div>
+@let departmentCtrl = form.get('department');
+@if(departmentCtrl?.errors && departmentCtrl?.touched) {
+    <div>
+    @if(departmentCtrl?.hasError('required')) {
+        <p>The department is required</p>
+    }
+    </div>
+}
+    <div class="form-row">
+        <label for="department">Department</label>
+        <select formControlName="department" id="department">
+            <option value="SIO">Informatique</option>
+            <option value="MEGP">Gestion de Projets</option>
+            <option value="BF">Banque et Finance</option>
+            <option value="CMD">Marketing Digital</option>
+        </select>
+    </div>
+    <div class="form-buttons">
+        <button (click)="onSubmit()" [disabled]="form.invalid" type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </div>
+</form>

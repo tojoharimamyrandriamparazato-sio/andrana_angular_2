@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Level</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @for(employee_exo of employees_exo(); track employee_exo._id) {
+            <tr>
+                <td>{{ employee_exo.name }}</td>
+                <td>{{ employee_exo.level }}</td>
+                <td>
+                    <button (click)="onEdit(employee_exo._id)">Edit</button>
+                    <button (click)="onDelete(employee_exo._id)">Delete</button>
+                    <button (click)="onDetails(employee_exo._id)">Details</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

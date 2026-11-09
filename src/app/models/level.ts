@@ -1,0 +1,1 @@
+export type Level = "X" | "Y" | "Z";

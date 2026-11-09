@@ -1,0 +1,1 @@
+export type Department = "SIO" | "MEGP" | "BF" | "CMD";
